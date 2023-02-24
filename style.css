@@ -1,0 +1,22 @@
+/* @keyframes rotateInDownRight {
+  0% {
+    -webkit-transform: rotate3d(0, 0, -1, 10deg);
+    transform: rotate3d(0, 0, -1, 10deg);
+  }
+  50% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 350deg);
+    transform: rotate3d(0, 0, -1, 350deg);
+  }
+}
+img {
+  -webkit-animation-name: rotateInDownRight;
+  animation-name: rotateInDownRight;
+  -webkit-transform-origin: right bottom;
+  transform-origin: right bottom;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+} */
