@@ -6,8 +6,26 @@
 body {
   background-color: rgb(9, 9, 9);
 }
+a,
+p {
+  font-family: "Cormorant Garamond", sans-serif;
+  font-weight: 400;
+  color: aliceblue;
+}
 
 header {
+  display: flex;
+}
+.homeIcon {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(53, 53, 53, 0.5);
+  border-radius: 17px;
+}
+#mainNav {
   background-color: rgb(53, 53, 53, 0.5);
   display: flex;
   justify-content: space-around;
@@ -18,9 +36,6 @@ header {
   border-radius: 17px;
   box-shadow: #000000 2px 2px 10px;
   align-items: center;
-}
-#mainNav {
-  width: 100%;
 }
 #mainNav > ul {
   display: flex;
@@ -45,5 +60,4 @@ a:hover {
 }
 p {
   width: 50%;
-  color: aliceblue;
 }
