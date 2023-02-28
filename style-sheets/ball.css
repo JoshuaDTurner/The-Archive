@@ -1,0 +1,35 @@
+.rowOne {
+  width: 40vw;
+  height: 30px;
+  background-color: aliceblue;
+  align-self: flex-end;
+  transform: rotate(-10deg);
+}
+.rowTwo {
+  width: 40vw;
+  height: 30px;
+  background-color: aliceblue;
+  transform: rotate(10deg);
+}
+.rowThree {
+  width: 40vw;
+  height: 30px;
+  background-color: aliceblue;
+  align-self: flex-end;
+  transform: rotate(-10deg);
+}
+#ballDropPage {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-around;
+}
+#ball {
+  display: inline;
+  position: fixed;
+  top: 10px;
+  background-color: aliceblue;
+  border-radius: 15px;
+  width: 30px;
+  height: 30px;
+}
