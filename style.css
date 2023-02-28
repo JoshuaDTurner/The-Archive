@@ -60,3 +60,20 @@ a:hover {
 p {
   width: 50%;
 }
+.spotLight {
+  filter: grayscale(100%);
+  opacity: 50%;
+  transform-origin: left;
+  --current-pos: 0;
+  --target-pos: 0;
+  animation: rotate-lag 2s infinite;
+}
+
+@keyframes rotate-lag {
+  0% {
+    transform: rotate(var(--current-pos) deg);
+  }
+  100% {
+    transform: rotate(var(--target-pos) deg);
+  }
+}
