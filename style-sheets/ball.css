@@ -1,22 +1,27 @@
 .rowOne {
   width: 40vw;
   height: 30px;
-  background-color: aliceblue;
+  background-color: rgb(255, 255, 255);
   align-self: flex-end;
   transform: rotate(-10deg);
+  margin-top: 20px;
+  transform-origin: right;
 }
 .rowTwo {
   width: 40vw;
   height: 30px;
-  background-color: aliceblue;
+  background-color: rgb(255, 255, 255);
   transform: rotate(10deg);
+  transform-origin: left;
 }
 .rowThree {
   width: 40vw;
   height: 30px;
-  background-color: aliceblue;
+  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(12, 12, 12); */
   align-self: flex-end;
   transform: rotate(-10deg);
+  transform-origin: right;
 }
 #ballDropPage {
   display: flex;
@@ -27,9 +32,80 @@
 #ball {
   display: inline;
   position: fixed;
-  top: 10px;
-  background-color: aliceblue;
+  top: 25px;
+  right: 25px;
+  background-image: radial-gradient(
+    rgb(255, 255, 255) 20%,
+    rgba(214, 214, 214, 0.92)
+  );
   border-radius: 15px;
   width: 30px;
   height: 30px;
+  box-shadow: 0 0 2px rgba(202, 228, 225, 0.92),
+    0 0 10px rgba(202, 228, 225, 0.34), 0 0 4px rgba(214, 214, 214, 0.52),
+    0 0 7px rgba(214, 214, 214, 0.92), 0 0 11px rgba(214, 214, 214, 0.78),
+    0 0 16px rgba(214, 214, 214, 0.92);
+}
+.drops {
+  -webkit-filter: url("#liquid");
+  filter: url("#liquid");
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  opacity: 1;
+}
+
+.drop1,
+.drop2 {
+  width: 21px;
+  height: 24px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(202, 228, 225, 0.92);
+}
+
+.drop1 {
+  width: 90px;
+  height: 16px;
+  bottom: 2px;
+  border-radius: 0;
+}
+
+.drop2 {
+  animation: drop 1.3s cubic-bezier(1, 0.19, 0.66, 0.12) 0.5s infinite;
+  animation-delay: 1s;
+}
+
+@keyframes drop {
+  0% {
+    bottom: 0px;
+  }
+
+  100% {
+    bottom: -350px;
+  }
+}
+
+@keyframes ballDrop {
+  0% {
+  }
+  16.5% {
+  }
+  33% {
+  }
+  49.5% {
+  }
+  66% {
+  }
+  82.5% {
+  }
+  100% {
+  }
 }

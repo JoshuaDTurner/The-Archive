@@ -10,15 +10,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Mrs+Saint+Delafield&display=swap"
       rel="stylesheet"
     />
     <script
       src="./node_modules/luxy.js/dist/js/luxy.js"
       charset="utf-8"
     ></script>
+    <script src="./node_modules/bounce.js/bounce.js" charset="utf-8"></script>
     <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
-
     <script type="module" src="app.js" defer></script>
   </head>
   <body>
@@ -27,7 +27,7 @@
         <lord-icon
           src="https://cdn.lordicon.com/slduhdil.json"
           trigger="hover"
-          colors="primary:#f0f8ff"
+          colors="primary:#c7ced6"
           state="hover-3"
           style="width: 30px; height: 30px"
         >
@@ -40,6 +40,27 @@
           <li><a href="#">Archives</a></li>
           <li><a href="#">Resume</a></li>
         </ul>
+        <div class="drops">
+          <div class="drop1"></div>
+          <div class="drop2"></div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+          <defs>
+            <filter id="liquid">
+              <feGaussianBlur
+                in="SourceGraphic"
+                stdDeviation="10"
+                result="blur"
+              />
+              <feColorMatrix
+                in="blur"
+                mode="matrix"
+                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                result="liquid"
+              />
+            </filter>
+          </defs>
+        </svg>
       </nav>
     </header>
     <div id="luxy">
@@ -48,6 +69,10 @@
         <div class="rowOne"></div>
         <div class="rowTwo"></div>
         <div class="rowThree"></div>
+      </div>
+      <div>
+        <h1 id="firstName">JOSHUA</h1>
+        <h1 id="secondName">Turner</h1>
       </div>
       <main>
         <img
