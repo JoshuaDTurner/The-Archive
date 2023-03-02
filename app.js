@@ -1,3 +1,4 @@
+//activates inertia scrolling using luxy.js
 luxy.init();
 
 // var bounce = new Bounce();
@@ -54,21 +55,50 @@ luxy.init();
 // // }
 // bounce.applyTo(document.querySelectorAll("#ball"));
 
-// //Problems to solve
-// using graphing to create a loop downwards (will need to make it so it the euqasion can change depending on the width of the screen)
-// using vw to make the landing spots consistant for sizes
-//looping the graph
+var bounce = new Bounce();
+bounce
+  .translate({
+    from: { x: 0, y: 0 },
+    to: { x: 0, y: 350 },
+    duration: 1000,
+    easing: "bounce",
+    stiffness: 5,
+    bounce: 1,
+  })
+  .scale({
+    from: { x: 1, y: 1 },
+    to: { x: 0.1, y: 2.3 },
+    easing: "sway",
+    duration: 1000,
+    delay: 65,
+    stiffness: 2,
+  });
 
 let i = {
-  h: 0,
-  a: 100,
+  h: window.innerWidth / 4,
+  a: 10,
   exponent: 0,
+  numOfDigits: 10,
+  topNumOfDigits: Math.pow(10, 15),
 };
-
-i.h = window.innerWidth / 4;
-i.exponent = Math.pow(i.h, 2);
+i.exponent = Math.pow(0 - i.h, 2);
 
 for (let y = 1; !(y === 0); i.a--) {
-  y = -(i.a / 100) * i.exponent + 100;
-  console.log(y, i.a);
+  y = -(i.a / i.numOfDigits) * i.exponent + 100;
+  console.log(y, i.a / i.numOfDigits);
+  if (i.numOfDigits > i.topNumOfDigits) {
+    console.log(i.a, i.numOfDigits);
+    y = 0;
+  }
+  if (y > 0) {
+    i.a = (i.a + 1) * 10;
+    i.numOfDigits = i.numOfDigits * 10;
+  }
 }
+// for (let axisX = 0; axisX === i.h*2 ; axisX--) {
+//   let axisY = quadraticInput.a * quadraticInput.exponent + quadraticInput.q;
+//   animationLoopInfo.newX = axisX - animationLoopInfo.oldX;
+//   animationLoopInfo.newY = axisY - animationLoopInfo.oldY;
+//   animationLoopInfo.oldX = axisX;
+//   animationLoopInfo.oldY = axisY;
+// }
