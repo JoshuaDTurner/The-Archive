@@ -4,30 +4,14 @@
   background-color: rgb(255, 255, 255);
   align-self: flex-end;
   transform: rotate(-10deg);
-  margin-top: 20px;
   transform-origin: right;
-}
-.rowTwo {
-  width: 40vw;
-  height: 30px;
-  background-color: rgb(255, 255, 255);
-  transform: rotate(10deg);
-  transform-origin: left;
-}
-.rowThree {
-  width: 40vw;
-  height: 30px;
-  background-color: rgb(255, 255, 255);
-  /* background-color: rgb(12, 12, 12); */
-  align-self: flex-end;
-  transform: rotate(-10deg);
-  transform-origin: right;
+  margin-bottom: 50px;
 }
 #ballDropPage {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  justify-content: space-around;
+  justify-content: flex-end;
 }
 #ball {
   display: inline;
