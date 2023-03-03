@@ -53,8 +53,35 @@ a {
   text-decoration: none;
   color: rgb(240, 248, 255, 0.8);
 }
+
+a:focus,
 a:hover {
   color: rgb(240, 248, 255);
+  text-shadow: 0 0 2px rgba(202, 228, 225, 0.92),
+    0 0 10px rgba(202, 228, 225, 0.34), 0 0 4px rgba(214, 214, 214, 0.52),
+    0 0 7px rgba(214, 214, 214, 0.92), 0 0 11px rgba(214, 214, 214, 0.78),
+    0 0 16px rgba(214, 214, 214, 0.92);
+}
+
+h1 {
+  color: rgb(240, 248, 255);
+  text-shadow: 0 0 2px rgba(202, 228, 225, 0.92),
+    0 0 10px rgba(202, 228, 225, 0.34), 0 0 4px rgba(214, 214, 214, 0.52),
+    0 0 7px rgba(214, 214, 214, 0.92), 0 0 11px rgba(214, 214, 214, 0.78),
+    0 0 16px rgba(214, 214, 214, 0.92);
+  margin: 0px auto;
+  display: block;
+  text-align: center;
+}
+#firstName {
+  font-family: "Cormorant Garamond", sans-serif;
+  font-size: 94px;
+}
+#secondName {
+  font-family: "Mrs Saint Delafield", cursive;
+  font-size: 85px;
+  transform: rotate(344deg);
+  font-weight: 200;
 }
 
 p {
