@@ -12,7 +12,7 @@ let animationLoopInfo = {
   newY: 0,
   oldX: 1,
   oldY: 0,
-  time: 1000,
+  time: 1450,
 };
 
 //Initiates inertia scrolling using luxy.js
@@ -36,7 +36,7 @@ function findAnimationPath() {
     y =
       (calculationLoopInfo.a / calculationLoopInfo.numOfDigits) *
         calculationLoopInfo.exponent -
-      100;
+      300;
     console.log(y);
     if (calculationLoopInfo.numOfDigits >= calculationLoopInfo.topNumOfDigits) {
       y = 0;
@@ -53,18 +53,27 @@ function movementOne() {
     .translate({
       from: { x: 0, y: 0 },
       to: { x: 0, y: 350 },
-      duration: 1000,
-      easing: "bounce",
+      duration: 12000,
+      easing: "hardbounce",
       stiffness: 5,
       bounce: 1,
     })
     .scale({
       from: { x: 1, y: 1 },
       to: { x: 0.1, y: 2.3 },
+      easing: "hardsway",
+      duration: 10000,
+      stiffness: 5,
+      bounce: 1,
+    })
+    .scale({
+      from: { x: 1, y: 1 },
+      to: { x: 2.3, y: 0.1 },
       easing: "sway",
-      duration: 1000,
-      delay: 65,
-      stiffness: 2,
+      duration: 2000,
+      delay: 1200,
+      stiffness: 5,
+      bounce: 1,
     });
 }
 
@@ -77,7 +86,7 @@ function movementTwo() {
       animationLoopInfo.oldY =
         (calculationLoopInfo.a / calculationLoopInfo.numOfDigits) *
           calculationLoopInfo.exponent -
-        100;
+        300;
       axisX = 0;
     }
 
@@ -85,7 +94,7 @@ function movementTwo() {
     let axisY =
       (calculationLoopInfo.a / calculationLoopInfo.numOfDigits) *
         calculationLoopInfo.exponent -
-      100;
+      300;
 
     console.log(axisY + "this is Y", animationLoopInfo.oldY + "this is old Y");
     animationLoopInfo.newX = axisX - animationLoopInfo.oldX;
@@ -100,7 +109,7 @@ function movementTwo() {
       from: { x: 0, y: 0 },
       to: { x: animationLoopInfo.newX, y: animationLoopInfo.newY },
       bounce: 1,
-      easing: "bounce",
+      easing: "hardbounce",
       duration: 5,
       stiffness: 5,
       delay: animationLoopInfo.time,
