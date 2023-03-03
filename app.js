@@ -1,104 +1,114 @@
-//activates inertia scrolling using luxy.js
-luxy.init();
+let bounce = new Bounce();
 
-// var bounce = new Bounce();
-// bounce
-//   .translate({
-//     from: { x: 0, y: 0 },
-//     to: { x: 0, y: 350 },
-//     duration: 1000,
-//     easing: "bounce",
-//     stiffness: 5,
-//     bounce: 1,
-//   })
-//   .scale({
-//     from: { x: 1, y: 1 },
-//     to: { x: 0.1, y: 2.3 },
-//     easing: "sway",
-//     duration: 1000,
-//     delay: 65,
-//     stiffness: 2,
-//   });
-// // animationLoopInfo.startY = window.innerWidth / 2;
-// // animationLoopInfo.oldY = animationLoopInfo.startY;
-// // let mathInt = animationLoopInfo.oldY / 3;
-// // console.log(animationLoopInfo.oldY);
-// // for (let axisX = 0; axisX > -animationLoopInfo.startY; axisX--) {
-// // let quadraticInput = {
-// //   width: mathInt,
-// //   p: -mathInt,
-// //   q: mathInt,
-// //   a: 0,
-// //   exponent: 0,
-// // };
-// // quadraticInput.a = 1 / mathInt;
-// // quadraticInput.exponent = Math.pow(axisX - quadraticInput.p, 2);
-
-// // let axisY = quadraticInput.a * quadraticInput.exponent + quadraticInput.q;
-// // animationLoopInfo.newX = axisX - animationLoopInfo.oldX;
-// // animationLoopInfo.newY = axisY - animationLoopInfo.oldY;
-// // console.log(animationLoopInfo.newY);
-// // console.log(axisY);
-// // animationLoopInfo.oldX = axisX;
-// // animationLoopInfo.oldY = axisY;
-
-// // bounce.translate({
-// //   from: { x: 0, y: 0 },
-// //   to: { x: animationLoopInfo.newX, y: animationLoopInfo.newY },
-// //   bounce: 1,
-// //   easing: "bounce",
-// //   duration: 5,
-// //   stiffness: 5,
-// //   delay: animationLoopInfo.time,
-// // });
-// // animationLoopInfo.time += 10;
-// // }
-// bounce.applyTo(document.querySelectorAll("#ball"));
-
-var bounce = new Bounce();
-bounce
-  .translate({
-    from: { x: 0, y: 0 },
-    to: { x: 0, y: 350 },
-    duration: 1000,
-    easing: "bounce",
-    stiffness: 5,
-    bounce: 1,
-  })
-  .scale({
-    from: { x: 1, y: 1 },
-    to: { x: 0.1, y: 2.3 },
-    easing: "sway",
-    duration: 1000,
-    delay: 65,
-    stiffness: 2,
-  });
-
-let i = {
-  h: window.innerWidth / 4,
+let calculationLoopInfo = {
+  h: 250,
   a: 10,
   exponent: 0,
-  numOfDigits: 10,
+  numOfDigits: 1,
   topNumOfDigits: Math.pow(10, 15),
 };
-i.exponent = Math.pow(0 - i.h, 2);
+let animationLoopInfo = {
+  newX: 0,
+  newY: 0,
+  oldX: 1,
+  oldY: 0,
+  time: 1000,
+};
 
-for (let y = 1; !(y === 0); i.a--) {
-  y = -(i.a / i.numOfDigits) * i.exponent + 100;
-  console.log(y, i.a / i.numOfDigits);
-  if (i.numOfDigits > i.topNumOfDigits) {
-    console.log(i.a, i.numOfDigits);
-    y = 0;
-  }
-  if (y > 0) {
-    i.a = (i.a + 1) * 10;
-    i.numOfDigits = i.numOfDigits * 10;
+//Initiates inertia scrolling using luxy.js
+luxy.init();
+//Initiates bouncy ball animation using bounce.js and JavaSript
+ballInit();
+
+function ballInit() {
+  formatAnimation();
+  render();
+}
+
+function formatAnimation() {
+  movementOne();
+  movementTwo();
+}
+
+function findAnimationPath() {
+  calculationLoopInfo.exponent = Math.pow(0 + calculationLoopInfo.h, 2);
+  // for (let y = 1; !(y === 0); calculationLoopInfo.a--) {
+  //   y =
+  //     (calculationLoopInfo.a / calculationLoopInfo.numOfDigits) *
+  //       calculationLoopInfo.exponent -
+  //     100;
+  //   if (calculationLoopInfo.numOfDigits > calculationLoopInfo.topNumOfDigits) {
+  //     y = 0;
+  //   }
+  //   if (y > 0) {
+  //     calculationLoopInfo.a = (calculationLoopInfo.a + 1) * 10;
+  //     calculationLoopInfo.numOfDigits = calculationLoopInfo.numOfDigits * 10;
+  //   }
+  // }
+  calculationLoopInfo.a = 0.016;
+}
+
+function movementOne() {
+  bounce
+    .translate({
+      from: { x: 0, y: 0 },
+      to: { x: 0, y: 350 },
+      duration: 1000,
+      easing: "bounce",
+      stiffness: 5,
+      bounce: 1,
+    })
+    .scale({
+      from: { x: 1, y: 1 },
+      to: { x: 0.1, y: 2.3 },
+      easing: "sway",
+      duration: 1000,
+      delay: 65,
+      stiffness: 2,
+    });
+}
+
+function movementTwo() {
+  findAnimationPath();
+  console.log(calculationLoopInfo.a, calculationLoopInfo.numOfDigits);
+  for (let axisX = 1; axisX !== -window.innerWidth / 2; axisX--) {
+    if (axisX === 1) {
+      calculationLoopInfo.exponent = Math.pow(axisX + calculationLoopInfo.h, 2);
+      animationLoopInfo.oldY =
+        (calculationLoopInfo.a / calculationLoopInfo.numOfDigits) *
+          calculationLoopInfo.exponent -
+        100;
+      axisX = 0;
+    }
+
+    calculationLoopInfo.exponent = Math.pow(axisX + calculationLoopInfo.h, 2);
+    let axisY =
+      (calculationLoopInfo.a / calculationLoopInfo.numOfDigits) *
+        calculationLoopInfo.exponent -
+      100;
+
+    console.log(axisY + "this is Y", animationLoopInfo.oldY + "this is old Y");
+    animationLoopInfo.newX = axisX - animationLoopInfo.oldX;
+    animationLoopInfo.oldX = axisX;
+    animationLoopInfo.newY = axisY - animationLoopInfo.oldY;
+    animationLoopInfo.oldY = axisY;
+    console.log(
+      animationLoopInfo.newX,
+      animationLoopInfo.newY + " this is new y"
+    );
+    bounce.translate({
+      from: { x: 0, y: 0 },
+      to: { x: animationLoopInfo.newX, y: animationLoopInfo.newY },
+      bounce: 1,
+      easing: "bounce",
+      duration: 5,
+      stiffness: 5,
+      delay: animationLoopInfo.time,
+    });
+    animationLoopInfo.time += 5;
   }
 }
-// for (let axisX = 0; axisX === i.h*2 ; axisX--) {
-//   let axisY = quadraticInput.a * quadraticInput.exponent + quadraticInput.q;
-//   animationLoopInfo.newX = axisX - animationLoopInfo.oldX;
-//   animationLoopInfo.newY = axisY - animationLoopInfo.oldY;
-//   animationLoopInfo.oldX = axisX;
-//   animationLoopInfo.oldY = axisY;
-// }
+
+function render() {
+  bounce.applyTo(document.querySelectorAll("#ball"));
+}
