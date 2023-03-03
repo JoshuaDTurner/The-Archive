@@ -1,10 +1,10 @@
 let bounce = new Bounce();
 
 let calculationLoopInfo = {
-  h: 250,
+  h: window.innerWidth / 4,
   a: 10,
   exponent: 0,
-  numOfDigits: 1,
+  numOfDigits: 10,
   topNumOfDigits: Math.pow(10, 15),
 };
 let animationLoopInfo = {
@@ -31,21 +31,21 @@ function formatAnimation() {
 }
 
 function findAnimationPath() {
-  calculationLoopInfo.exponent = Math.pow(0 + calculationLoopInfo.h, 2);
-  // for (let y = 1; !(y === 0); calculationLoopInfo.a--) {
-  //   y =
-  //     (calculationLoopInfo.a / calculationLoopInfo.numOfDigits) *
-  //       calculationLoopInfo.exponent -
-  //     100;
-  //   if (calculationLoopInfo.numOfDigits > calculationLoopInfo.topNumOfDigits) {
-  //     y = 0;
-  //   }
-  //   if (y > 0) {
-  //     calculationLoopInfo.a = (calculationLoopInfo.a + 1) * 10;
-  //     calculationLoopInfo.numOfDigits = calculationLoopInfo.numOfDigits * 10;
-  //   }
-  // }
-  calculationLoopInfo.a = 0.016;
+  calculationLoopInfo.exponent = Math.pow(calculationLoopInfo.h, 2);
+  for (let y = 1; !(y === 0); calculationLoopInfo.a--) {
+    y =
+      (calculationLoopInfo.a / calculationLoopInfo.numOfDigits) *
+        calculationLoopInfo.exponent -
+      100;
+    console.log(y);
+    if (calculationLoopInfo.numOfDigits >= calculationLoopInfo.topNumOfDigits) {
+      y = 0;
+    }
+    if (y < 0) {
+      calculationLoopInfo.a = (calculationLoopInfo.a + 1) * 10;
+      calculationLoopInfo.numOfDigits = calculationLoopInfo.numOfDigits * 10;
+    }
+  }
 }
 
 function movementOne() {
