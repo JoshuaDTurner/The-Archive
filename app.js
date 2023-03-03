@@ -38,12 +38,12 @@ function findAnimationPath() {
         calculationLoopInfo.exponent -
       300;
     console.log(y);
-    if (calculationLoopInfo.numOfDigits >= calculationLoopInfo.topNumOfDigits) {
-      y = 0;
-    }
     if (y < 0) {
       calculationLoopInfo.a = (calculationLoopInfo.a + 1) * 10;
       calculationLoopInfo.numOfDigits = calculationLoopInfo.numOfDigits * 10;
+    }
+    if (calculationLoopInfo.numOfDigits >= calculationLoopInfo.topNumOfDigits) {
+      y = 0;
     }
   }
 }
@@ -80,7 +80,14 @@ function movementOne() {
 function movementTwo() {
   findAnimationPath();
   console.log(calculationLoopInfo.a, calculationLoopInfo.numOfDigits);
-  for (let axisX = 1; axisX !== -window.innerWidth / 2; axisX--) {
+  for (
+    let axisX = 1;
+    !(
+      axisX >= -(window.innerWidth / 2) - 1 &&
+      axisX <= -(window.innerWidth / 2) + 1
+    );
+    axisX--
+  ) {
     if (axisX === 1) {
       calculationLoopInfo.exponent = Math.pow(axisX + calculationLoopInfo.h, 2);
       animationLoopInfo.oldY =
