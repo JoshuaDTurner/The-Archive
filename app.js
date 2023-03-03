@@ -17,7 +17,7 @@ function scrollCheck() {
   }
   scrollInfo.lastScrollTop = scrollInfo.currentScrollTop;
   console.log(scrollInfo.vector);
-  window.requestAnimationFrame(render);
+  render();
 }
 
 function render() {
