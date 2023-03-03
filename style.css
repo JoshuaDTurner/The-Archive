@@ -26,6 +26,7 @@ header {
   border-radius: 17px;
   margin: 20px 20px;
   position: fixed;
+  top: 20px;
 }
 #mainNav {
   background-color: rgb(40, 40, 40);
@@ -35,7 +36,7 @@ header {
   width: 25vw;
   min-width: 240px;
   height: 40px;
-  margin: 20px auto;
+  margin: 40px auto;
   border-radius: 17px;
   box-shadow: #000000 2px 2px 10px;
   align-items: center;
@@ -48,6 +49,13 @@ header {
 }
 #mainNav > ul > li {
   display: inline;
+}
+lord-icon {
+  opacity: 0.6;
+}
+lord-icon:focus,
+lord-icon:hover {
+  opacity: 1;
 }
 a {
   text-decoration: none;
@@ -85,5 +93,5 @@ h1 {
 }
 
 p {
-  width: 50%;
+  width: 25%;
 }
