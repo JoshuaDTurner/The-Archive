@@ -83,6 +83,8 @@ h1 {
   margin: 0px auto;
   display: block;
   text-align: center;
+
+  animation: neon 0.4s ease-in-out infinite alternate;
 }
 #firstName {
   font-family: "Cormorant Garamond", sans-serif;
@@ -94,6 +96,18 @@ h1 {
   transform: rotate(344deg);
   font-weight: 200;
 }
+#luxy > main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  align-content: center;
+}
 p {
-  width: 25%;
+  text-align: center;
 }
