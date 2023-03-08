@@ -18,7 +18,9 @@
   "homepage": "https://github.com/JoshuaDTurner/The-Archive#readme",
   "description": "",
   "dependencies": {
-    "luxy.js": "^0.1.0",
+    "luxy.js": "^0.1.0"
+  },
+  "devDependencies": {
     "parcel": "^2.8.3"
   }
 }
