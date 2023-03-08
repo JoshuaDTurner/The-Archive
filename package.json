@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "parcel",
+    "start": "npx parcel src/index.html",
     "build": "parcel build"
   },
   "repository": {
@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/JoshuaDTurner/The-Archive/issues"
   },
-  "homepage": "https://github.com/JoshuaDTurner/The-Archive#readme",
+  "homepage": "https://github.com/JoshuaDTurner/The-Archive/src/index.html",
   "description": "",
   "dependencies": {
     "luxy.js": "^0.1.0"
