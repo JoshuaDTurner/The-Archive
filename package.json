@@ -20,8 +20,5 @@
   "description": "",
   "dependencies": {
     "luxy.js": "^0.1.0"
-  },
-  "devDependencies": {
-    "parcel": "^2.8.3"
   }
 }
