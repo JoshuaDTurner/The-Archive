@@ -27,6 +27,17 @@ header {
   position: fixed;
   top: 20px;
 }
+.homeIcon > i {
+  font-size: 20px;
+}
+.menuButtons:hover,
+.menuButtons:focus {
+  color: rgb(240, 248, 255);
+  text-shadow: 0 0 1px rgba(202, 228, 225, 0.92),
+    0 0 5px rgba(202, 228, 225, 0.34), 0 0 1px rgba(214, 214, 214, 0.52),
+    0 0 3px rgba(214, 214, 214, 0.92), 0 0 8px rgba(214, 214, 214, 0.78),
+    0 0 10px rgba(214, 214, 214, 0.92);
+}
 #mainNav {
   background-color: rgb(40, 40, 40);
   display: flex;
@@ -49,19 +60,12 @@ header {
 #mainNav > ul > li {
   display: inline;
 }
-lord-icon {
-  opacity: 0.6;
-}
-lord-icon:focus,
-lord-icon:hover {
-  opacity: 1;
-}
 a {
   text-decoration: none;
   color: rgb(240, 248, 255, 0.8);
 }
-a:focus,
-a:hover {
+li > a:focus,
+li > a:hover {
   color: rgb(240, 248, 255);
   text-shadow: 0 0 2px rgba(202, 228, 225, 0.92),
     0 0 10px rgba(202, 228, 225, 0.34), 0 0 4px rgba(214, 214, 214, 0.52),
@@ -111,8 +115,13 @@ section {
 p {
   text-align: center;
 }
-i {
-  height: 50px;
-  width: 50px;
+#socialLinks {
+  display: flex;
+  justify-content: space-evenly;
+}
+#socialLinks > a > i {
+  height: max-content;
+  width: max-content;
   color: rgb(240, 248, 255);
+  font-size: 50px;
 }
