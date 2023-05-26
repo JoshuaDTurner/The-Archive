@@ -78,7 +78,8 @@ li > a:hover {
   flex-direction: column;
   justify-content: center;
 }
-h1 {
+h1,
+h2 {
   color: rgb(240, 248, 255);
   text-shadow: 0 0 2px rgba(202, 228, 225, 0.92),
     0 0 10px rgba(202, 228, 225, 0.34), 0 0 4px rgba(214, 214, 214, 0.52),
@@ -87,8 +88,6 @@ h1 {
   margin: 0px auto;
   display: block;
   text-align: center;
-
-  animation: neon 0.4s ease-in-out infinite alternate;
 }
 #firstName {
   font-family: "Cormorant Garamond", sans-serif;
@@ -124,4 +123,17 @@ p {
   width: max-content;
   color: rgb(240, 248, 255);
   font-size: 50px;
+}
+.projectList {
+  display: grid;
+  grid-template-columns: 2 1fr;
+  grid-template-rows: 2 1fr;
+}
+article {
+  display: grid;
+  width: 40%;
+}
+article > img {
+  width: 320px;
+  height: 180px;
 }
